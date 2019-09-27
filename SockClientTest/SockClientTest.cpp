@@ -79,17 +79,12 @@ int Reciever() {
 	err = WSAStartup(wVersionRequested, &wsaData);
 
 	if (err != 0) {
-
 		return -1;
-
 	}
 
 	if (LOBYTE(wsaData.wVersion) != 1 ||
-
 		HIBYTE(wsaData.wVersion) != 1) {
-
 		WSACleanup();
-
 		return -1;
 
 	}
@@ -102,13 +97,16 @@ int Reciever() {
 	addrSrv.sin_family = AF_INET;
 
 	addrSrv.sin_port = htons(8890);
-
-	connect(sockClient, (SOCKADDR*)&addrSrv, sizeof(SOCKADDR));
-
-	const char baseCh[] = "hello, this is message from cpp!";
-
+	
 	try
 	{
+		int connectCount = 0;
+		while (connect(sockClient, (SOCKADDR*)&addrSrv, sizeof(SOCKADDR)) != 0) {
+			printf("connecting at No.%d \n", ++connectCount);
+			Sleep(3);
+		}
+		printf("connected!\n");
+		const char baseCh[] = "hello, this is message from cpp!";
 		send(sockClient, baseCh, strlen(baseCh) + 1, 0);
 		int ret = 0;
 		do
@@ -118,7 +116,7 @@ int Reciever() {
 
 			ret = recv(sockClient, recvBuf, 50, 0);
 
-			printf("severRecv:%s\n", recvBuf);
+			printf("Receive:%s\n", recvBuf);
 
 		} while (ret > 0);
 	}

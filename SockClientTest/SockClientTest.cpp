@@ -5,11 +5,11 @@
 #include <stdio.h>  
 #include <boost/thread.hpp>
 #include <Winsock2.h>  
-/*
+
 #pragma comment(lib,"ws2_32.lib")
 
 #pragma warning(disable:4996)
-*/
+
 #include <iostream>
 class MyClientSocket {
 public:

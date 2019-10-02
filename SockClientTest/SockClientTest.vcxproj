@@ -84,6 +84,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);C:\libs\opencv-2.4.3\modules\contrib\include;C:\libs\opencv-2.4.3\modules\highgui\include;C:\libs\opencv-2.4.3\modules\ml\include;C:\libs\opencv-2.4.3\modules\calib3d\include;C:\libs\opencv-2.4.3\modules\objdetect\include;C:\libs\opencv-2.4.3\modules\features2d\include;C:\libs\opencv-2.4.3\modules\video\include;C:\libs\opencv-2.4.3\modules\photo\include;C:\libs\opencv-2.4.3\modules\imgproc\include;C:\libs\opencv-2.4.3\modules\flann\include;C:\libs\opencv-2.4.3\modules\core\include;C:\libs\proj-5.2.0\src;C:\libs\opencv-2.4.3\include;C:\libs\googletest-master\googletest\include;C:\libs\glfw-3.2.1.bin.WIN64\include\GLFW;C:\libs\freeglut-3.0.0\include;C:\libs\boost_1_68_0;$(IncludePath)</IncludePath>
+    <LibraryPath>$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(NETFXKitsDir)Lib\um\x64;C:\libs\boost_1_68_0\stage\lib;C:\libs\proj-5.2.0\lib\Release;C:\libs\opencv-2.4.3\build\lib\Release;C:\libs\googletest-master\googletest\lib\Release;C:\libs\glfw-3.2.1.bin.WIN64\lib-vc2015;C:\libs\freeglut-3.0.0\lib\Release;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -142,7 +144,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>

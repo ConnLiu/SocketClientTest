@@ -1,0 +1,10 @@
+﻿  SockClientTest.cpp
+C:\Users\kun\source\repos\SockClientTest\SockClientTest\SockClientTest.cpp(68,11): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 2 has type 'size_t'
+C:\Users\kun\source\repos\SockClientTest\SockClientTest\SockClientTest.cpp(68,11): message : consider using '%zd' in the format string
+C:\Users\kun\source\repos\SockClientTest\SockClientTest\SockClientTest.cpp(73,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  Generating code
+  2 of 604 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    3 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  SockClientTest.vcxproj -> C:\Users\kun\source\repos\SockClientTest\x64\Release\SocketClientTest.exe

@@ -5,6 +5,7 @@
 #include <stdio.h>  
 #include <boost/thread.hpp>
 #include <Winsock2.h>  
+#include "weights.h"
 
 #pragma comment(lib,"ws2_32.lib")
 
@@ -60,23 +61,18 @@ public:
 
 	};
 
-	 int receiveMsg() {
+	 int receiveMsg(char recvBuf[1024]) {
 		 // wait for the msg until receive NULL msg
+		 
+		 int ret = recv(sockClient, recvBuf, 1024, 0);
+		 printf("Receive:%s %d\n", recvBuf, sizeof(recvBuf));
+		 return ret;
+	 }
+	 int sendMsg() {
 		 const char baseCh[] = "hello, this is message from cpp!";
 		 send(sockClient, baseCh, strlen(baseCh) + 1, 0);
-		 int ret = 0;
-		 do
-		 {
-			 char recvBuf[50] = "";
-
-			 ret = recv(sockClient, recvBuf, 50, 0);
-
-			 printf("Receive:%s\n", recvBuf);
-
-		 } while (ret > 0);
-		 return 1;
+		 return 0;
 	 }
-
 	 ~MyClientSocket() {
 		 closesocket(sockClient);
 		 WSACleanup();
@@ -89,11 +85,18 @@ private:
 
 int main()
 {
+	// 1. 把 JSON 解析至 DOM。
+	//const char* json = "{\"pena_max_latg_double\": 5.0,\"pena_latg_double\": 5.0, \"pena_spd_double\": 5.0, \"pena_a_max_double\": 5.0, \"pena_a_min_double\": 5.0, \"pena_curv_rate_double\": 5.0, \"dynamic_obstacle_lethal_cost_double\": 5.0, \"dynamic_obstacle_high_cost_double\": 5.0}";
+	
+
 
 	
 	//boost::thread thr(Reciever);
 	MyClientSocket myClientSocket;
-	myClientSocket.receiveMsg();
+	char json[1024];
+	myClientSocket.receiveMsg(json);
+	Weights w(json);
+	std::cout <<"GetJson:" << w.getJson() << std::endl;
 	getchar();
 	return 0;
 

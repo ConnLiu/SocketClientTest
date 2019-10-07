@@ -17,20 +17,20 @@ import json
 class Weights:
 
     def __init__(self, value):
-        self.pena_max_latg_double = value
-        self.pena_latg_double = value
-        self.pena_spd_double = value
-        self.pena_a_max_double = value
-        self.pena_a_min_double = value
-        self.pena_curv_rate_double = value
-        self.dynamic_obstacle_lethal_cost_double = value
-        self.dynamic_obstacle_high_cost_double = value
+        self.pena_max_latg = value
+        self.pena_latg = value
+        self.pena_spd = value
+        self.pena_a_max = value
+        self.pena_a_min = value
+        self.pena_curv_rate = value
+        self.dynamic_obstacle_lethal_cost = value
+        self.dynamic_obstacle_high_cost = value
     def getAllStruct(self):
-        return (self.pena_max_latg_double, self.pena_latg_double, 
-        self.pena_spd_double, self.pena_a_max_double, 
-        self.pena_a_min_double,self.pena_curv_rate_double, 
-        self.dynamic_obstacle_lethal_cost_double, 
-        self.dynamic_obstacle_high_cost_double)
+        return (self.pena_max_latg, self.pena_latg,
+        self.pena_spd, self.pena_a_max,
+        self.pena_a_min,self.pena_curv_rate,
+        self.dynamic_obstacle_lethal_cost,
+        self.dynamic_obstacle_high_cost)
     def getJson(self):
         return json.dumps(self.__dict__)
 

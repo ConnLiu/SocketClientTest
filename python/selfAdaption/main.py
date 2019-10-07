@@ -23,7 +23,7 @@ if __name__ == '__main__':
             if s == "exit":
                 print("exit....")
         elif action == 2:
-            w = float(input("input value:"))
+            w = 3#float(input("input value:"))
             weights = Weights(w)
             print(weights.getAllStruct())
             print(type(weights.getAllStruct()))
@@ -31,12 +31,13 @@ if __name__ == '__main__':
             print(data)
             obj.sendStruct(data)
         elif action == 3: # transfer use json
-            w = float(input("input value:"))
+            w = 3#float(input("input value:"))
             weights = Weights(w)
             
             data = weights.getJson()
             print(data)
             obj.send(data)
+            float(input("input to continue"))
             # print(weights.getAllStruct())
             # print(type(weights.getAllStruct()))
             # data = struct.pack(">dddddddd",*(weights.getAllStruct()))

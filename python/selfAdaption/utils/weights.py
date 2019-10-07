@@ -12,6 +12,7 @@
     double curve_rate_limit; //曲率変化率の制限値　　　　　　　　　　　　　default: 20.0
 
 """
+import json
 
 class Weights:
 
@@ -24,10 +25,12 @@ class Weights:
         self.pena_curv_rate_double = value
         self.dynamic_obstacle_lethal_cost_double = value
         self.dynamic_obstacle_high_cost_double = value
-    def getAll(self):
+    def getAllStruct(self):
         return (self.pena_max_latg_double, self.pena_latg_double, 
         self.pena_spd_double, self.pena_a_max_double, 
         self.pena_a_min_double,self.pena_curv_rate_double, 
         self.dynamic_obstacle_lethal_cost_double, 
         self.dynamic_obstacle_high_cost_double)
+    def getJson(self):
+        return json.dumps(self.__dict__)
 

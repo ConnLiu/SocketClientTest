@@ -15,27 +15,21 @@ if __name__ == '__main__':
     obj = MySocket()
     print("this is", obj)
     while 1:
-        #action = int(input("Choose: 1:input anything, 2:input struct, 3:transfer string..."))
-        action = 3
+        action = 2#int(input("Choose: 1:input anything, 2:transfer string..."))
+
         if action == 1:
             s = input()
             obj.send(s if s!="end" else "")
             if s == "exit":
                 print("exit....")
-        elif action == 2:
-            w = 3#float(input("input value:"))
-            weights = Weights(w)
-            print(weights.getAllStruct())
-            print(type(weights.getAllStruct()))
-            data = struct.pack(">dddddddd",*(weights.getAllStruct()))
-            print(data)
-            obj.sendStruct(data)
-        elif action == 3: # transfer use json
+
+        elif action == 2: # transfer use json
             w = 3#float(input("input value:"))
             weights = Weights(w)
             
             data = weights.getJson()
             print(data)
+            obj.send("Change")
             obj.send(data)
             float(input("input to continue"))
             # print(weights.getAllStruct())

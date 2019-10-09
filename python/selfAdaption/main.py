@@ -32,8 +32,4 @@ if __name__ == '__main__':
             obj.send("Change")
             obj.send(data)
             float(input("input to continue"))
-            # print(weights.getAllStruct())
-            # print(type(weights.getAllStruct()))
-            # data = struct.pack(">dddddddd",*(weights.getAllStruct()))
-            # print(data)
-            # obj.sendStruct(data)
+
